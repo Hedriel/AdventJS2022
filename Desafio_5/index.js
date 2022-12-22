@@ -6,7 +6,6 @@ function getMaxGifts(giftsCities, maxGifts, maxCities) {
   let citiesToDeliver = giftsCities
   .filter(city => city < maxGifts)
   .sort((a, b) => {return b-a})
-  .slice(0, maxCities) 
   let deliveredGifts = 0
 
   citiesToDeliver.forEach(city => {
