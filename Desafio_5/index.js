@@ -1,18 +1,17 @@
-const giftsCities = [12, 3, 11, 5, 7]
-const maxGifts = 20
-const maxCities = 3
+const giftsCities = [50, 70, 30]
+const maxGifts = 100
+const maxCities = 2
 
 function getMaxGifts(giftsCities, maxGifts, maxCities) {
   let citiesToDeliver = giftsCities
-  .filter( city => city <= maxGifts)
+  .filter(city => city < maxGifts)
   .sort((a, b) => {return b-a})
+  .slice(0, maxCities) 
   let deliveredGifts = 0
-
-  console.log(citiesToDeliver)
 
   citiesToDeliver.forEach(city => {
     if (city <= maxGifts &&  maxGifts >= city+deliveredGifts) {
-      deliveredGifts = deliveredGifts + city
+      deliveredGifts = deliveredGifts+city
     }
   });
   return deliveredGifts
@@ -23,4 +22,5 @@ function getMaxGifts(giftsCities, maxGifts, maxCities) {
   console.log(giftedGift)
   giftedGift++
 } */
-console.log(getMaxGifts([12, 3, 11, 5, 7], 20, 3))
+getMaxGifts([50, 70, 30], 100, 2)
+ // 70
